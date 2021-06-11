@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-console.log(process.env.DB_URL)
-mongoose.connect(process.env.DB_URL || "mongodb://localhost/budget", {
+
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
@@ -24,7 +24,7 @@ mongoose.connect(process.env.DB_URL || "mongodb://localhost/budget", {
 });
 
 // routes
-app.use(require("./routes/api.js"));
+app.use(require("/routes/api.js"));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
